@@ -1,0 +1,83 @@
+
+/* Main wrapper */
+#tabulationForPrint {
+  color: #1f252b;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+/* Main table */
+#tabulationForPrint table.GeneratedTable {
+  width: 100% !important;
+  border: 1.5px solid #1764AD !important;
+  border-collapse: collapse !important;
+  color: #172b3d !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 12px;
+  background: #ffffff !important;
+}
+
+/* Table cells */
+#tabulationForPrint table.GeneratedTable th,
+#tabulationForPrint table.GeneratedTable td {
+  border: 1px solid #9aabba !important;
+  padding: 4px 3px !important;
+  vertical-align: middle;
+}
+
+/* Main header - Progress Report style */
+#tabulationForPrint table.GeneratedTable thead th {
+  background: #1764AD !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+}
+
+/* Header rows */
+#tabulationForPrint table.GeneratedTable thead tr {
+  background: #1764AD !important;
+  color: #ffffff !important;
+}
+
+/* Alternate body rows */
+#tabulationForPrint table.GeneratedTable tbody tr:nth-child(even) td {
+  background-color: #F4F8FC;
+}
+
+/* Highlighted totals and grade cells */
+#tabulationForPrint table.GeneratedTable tbody td[style*="background-color"] {
+  background-color: #DCEAF7 !important;
+  color: #123F80 !important;
+  font-weight: 700 !important;
+}
+
+/* Total rows */
+#tabulationForPrint table.GeneratedTable tbody tr.total td,
+#tabulationForPrint table.GeneratedTable tbody tr.grand td {
+  background-color: #EAF3FC !important;
+  color: #123F80 !important;
+  font-weight: 800 !important;
+}
+
+/* Report title */
+#tabulationForPrint h1,
+#tabulationForPrint h2 {
+  color: #123F80 !important;
+}
+
+/* Horizontal line */
+#tabulationForPrint hr {
+  border: 0 !important;
+  border-top: 1.5px solid #1764AD !important;
+}
+
+/* Print colors */
+@media print {
+  #tabulationForPrint,
+  #tabulationForPrint table,
+  #tabulationForPrint th,
+  #tabulationForPrint td {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
