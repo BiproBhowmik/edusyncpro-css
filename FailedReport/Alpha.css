@@ -13,7 +13,7 @@
   width: 210mm;
   min-height: 297mm;
   margin: 10px auto;
-  border: 1px solid #123f7a;
+  /* border: 1px solid #123f7a; */
   background: #fff;
   box-shadow: 0 0 12px rgba(0, 0, 0, .18);
 }
@@ -245,7 +245,7 @@
     width: 210mm;
     min-height: 287mm;
     margin: 0;
-    border: 1px solid #123f7a;
+    /* border: 1px solid #123f7a; */
     box-shadow: none;
     overflow: visible;
   }
