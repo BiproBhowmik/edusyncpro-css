@@ -1,0 +1,616 @@
+
+/* ================================================================
+   HIDDEN ON SCREEN
+================================================================ */
+.bill-print-content {
+    visibility: hidden;
+    position: absolute;
+    left: -99999px;
+    top: 0;
+}
+
+/* ================================================================
+   A4 PAGE
+================================================================ */
+.invoice-page {
+    position: relative;
+    width: 794px;
+    min-height: 1123px;
+    margin: 0 auto;
+    padding: 32px 38px 28px;
+    box-sizing: border-box;
+    background: #ffffff;
+    color: #1e293b;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-page:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.invoice-watermark {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.10 !important;
+    pointer-events: none;
+}
+
+.invoice-watermark img {
+    width: 280px;
+    max-width: 45%;
+    max-height: 45%;
+    object-fit: contain;
+}
+
+/* Keep content above watermark */
+.invoice-header,
+.billed-to-box,
+.section-title,
+.details-table,
+.summary-container,
+.invoice-footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================================================
+   HEADER
+================================================================ */
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #1e40af;
+}
+
+.company-section {
+    display: flex;
+    width: 60%;
+}
+
+.company-logo {
+    width: 84px;
+    height: 84px;
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.company-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.company-name {
+    color: #1e3a8a;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.company-tagline {
+    margin-top: 2px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.company-contact {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+/* ================================================================
+   BILL HEADER
+================================================================ */
+.bill-header-info {
+    width: 35%;
+    padding-left: 20px;
+    border-left: 2px solid #1e40af;
+}
+
+.bill-title {
+    color: #1e3a8a;
+    font-size: 40px;
+    line-height: 1;
+    font-weight: 900;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+.original-copy {
+    width: 124px;
+    margin: 6px 0 10px;
+    padding: 4px 8px;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    background: #1e40af;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.bill-meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.bill-meta-table td {
+    padding: 3px 1px;
+    color: #475569;
+}
+
+.meta-label {
+    width: 80px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.meta-colon {
+    width: 8px;
+}
+
+.meta-val {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* ================================================================
+   BILLED TO
+================================================================ */
+.billed-to-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    background: #f0f7ff;
+}
+
+.billed-to-box.has-paid-seal {
+    padding-right: 170px;
+}
+
+.paid-seal {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    z-index: 2;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.paid-seal img {
+    display: block;
+    width: 250px;
+    height: auto;
+}
+
+.school-icon {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    overflow: hidden;
+    color: #1e40af;
+    font-size: 28px;
+}
+
+.school-icon img {
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+.section-mini-title {
+    margin-bottom: 2px;
+    color: #1e40af;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.school-name {
+    margin-bottom: 2px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.school-meta {
+    font-size: 15px;
+    color: #475569;
+}
+
+/* ================================================================
+   SECTION TITLE
+================================================================ */
+.section-title {
+    padding: 6px 12px;
+    color: #ffffff;
+    background: #1e40af;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    border-radius: 4px 4px 0 0;
+    text-transform: uppercase;
+}
+
+/* ================================================================
+   DETAILS TABLE (BILL LIST)
+================================================================ */
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.details-table th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-top: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.details-table td {
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+}
+
+.details-table .month-column {
+    white-space: nowrap;
+}
+
+.details-value {
+    font-weight: 500;
+}
+
+/* Utility alignments */
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.font-bold {
+    font-weight: 700;
+}
+
+/* Text colors */
+.text-success {
+    color: #16a34a !important;
+}
+.text-danger {
+    color: #dc2626 !important;
+}
+.text-orange {
+    color: #ea580c !important;
+}
+.text-primary {
+    color: #1d4ed8 !important;
+}
+
+/* ================================================================
+   COMPACT SUMMARY
+================================================================ */
+.summary-container {
+    border: 1px solid #cbd5e1;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background: #fafafa;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.summary-values-box {
+    width: 100%;
+    background: #f8fafc;
+}
+
+.compact-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.compact-summary-table th {
+    padding: 7px 10px;
+    color: #334155;
+    background: #f1f5f9;
+    border-right: 1px solid #cbd5e1;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.compact-summary-table td {
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #0f172a;
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.compact-summary-table td,
+.compact-summary-table th:last-child {
+    border-right: none;
+}
+
+/* ================================================================
+   PAYMENT STATUS BADGES
+================================================================ */
+.status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.status-paid {
+    color: #15803d;
+    background: #dcfce7;
+    border: 1px solid #bbf7d0;
+}
+
+.status-pending {
+    color: #a16207;
+    background: #fef9c3;
+    border: 1px solid #fef08a;
+}
+
+.status-rejected {
+    color: #b91c1c;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+.invoice-footer {
+    margin-top: auto;
+    padding-top: 12px;
+    padding-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    border-top: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.footer-left {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+}
+
+.footer-left strong {
+    color: #1e40af;
+    font-size: 11px;
+}
+
+.printed-on {
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-right strong {
+    color: #1e40af;
+}
+
+.page-number {
+    flex: 0 0 auto;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ================================================================
+   INFO BOX
+================================================================ */
+
+.info-box {
+
+    border: 1px solid #cbd7e6;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    background: rgba(255,255,255,.95);
+
+}
+
+
+.box-title {
+
+    padding: 9px 12px;
+
+    background: #f0f4f9;
+
+    border-bottom: 1px solid #d5dce6;
+
+    color: #174c9c;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+}
+
+
+.info-row {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    padding: 7px 10px;
+
+    border-bottom: 1px solid #edf0f4;
+
+}
+
+
+.info-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.final-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0 16px;
+    padding: 10px 12px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+
+.final-status-row .info-label {
+    width: auto;
+    color: #166534;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+
+.final-status-row .info-value {
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+
+.final-status-badge {
+    min-width: 94px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* ================================================================
+   PRINT STYLES
+================================================================ */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+    }
+
+    .bill-print-content {
+        visibility: visible !important;
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+    }
+
+    .invoice-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 12mm 14mm 10mm !important;
+        box-sizing: border-box !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-after: auto !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .invoice-page:not(:last-child) {
+        margin-bottom: 0 !important;
+        break-after: page;
+        page-break-after: always !important;
+    }
+
+    .section-title,
+    .original-copy,
+    .billed-to-box,
+    .status-badge,
+    .summary-container,
+    .summary-values-box,
+    .compact-summary-table .due-row,
+    .compact-summary-table .collection-row,
+    .invoice-footer {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
