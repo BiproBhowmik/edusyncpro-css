@@ -1,0 +1,959 @@
+
+
+/* ================================================================
+   HIDDEN ON SCREEN
+================================================================ */
+
+.bill-print-content {
+
+    visibility: hidden;
+
+    position: absolute;
+
+    left: -99999px;
+
+    top: 0;
+
+}
+
+
+/* ================================================================
+   A4 PAGE
+================================================================ */
+
+.invoice-page {
+
+    position: relative;
+
+    width: 794px;
+
+    min-height: 1123px;
+
+    margin: 0 auto;
+
+    padding: 32px 38px 28px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* ================================================================
+   WATERMARK
+================================================================ */
+
+.invoice-watermark {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 430px;
+
+    height: 430px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0.5;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+}
+
+
+.invoice-watermark img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+/* Keep content above watermark */
+
+.invoice-header,
+.billed-to-box,
+.section-title,
+.details-table,
+.bottom-grid,
+.invoice-footer {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/* ================================================================
+   HEADER
+================================================================ */
+
+.invoice-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-bottom: 20px;
+
+    border-bottom: 2px solid #174c9c;
+
+}
+
+
+.company-section {
+
+    display: flex;
+
+    width: 58%;
+
+}
+
+
+.company-logo {
+
+    width: 92px;
+
+    height: 92px;
+
+    margin-right: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.company-logo img {
+
+    max-width: 92px;
+
+    max-height: 92px;
+
+    object-fit: contain;
+
+}
+
+
+.company-name {
+
+    color: #123b8f;
+
+    font-size: 33px;
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+}
+
+
+.company-tagline {
+
+    margin-top: 4px;
+
+    margin-bottom: 9px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #555;
+
+}
+
+
+.company-contact {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #555;
+
+}
+
+
+/* ================================================================
+   BILL HEADER
+================================================================ */
+
+.bill-header-info {
+
+    width: 34%;
+
+    padding-left: 20px;
+
+    border-left: 2px solid #174c9c;
+
+}
+
+
+.bill-title {
+
+    color: #102f78;
+
+    font-size: 45px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    text-align: left;
+
+}
+
+
+.original-copy {
+
+    width: 124px;
+
+    margin: 6px 0 13px;
+
+    padding: 6px 8px;
+
+    color: #fff;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    background: #174c9c;
+
+    border-radius: 3px;
+
+}
+
+
+.bill-meta-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 14px;
+
+}
+
+
+.bill-meta-table td {
+
+    padding: 4px 1px;
+
+}
+
+
+.meta-label {
+
+    width: 62px;
+
+    font-weight: 700;
+
+}
+
+
+.meta-colon {
+
+    width: 8px;
+
+}
+
+
+/* ================================================================
+   BILLED TO
+================================================================ */
+
+.billed-to-box {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 18px;
+
+    margin-bottom: 18px;
+
+    padding: 12px 15px;
+
+    border: 1px solid #a7bee0;
+
+    border-radius: 7px;
+
+    background: #f9fbff;
+
+}
+
+
+.school-icon {
+
+    width: 68px;
+
+    height: 68px;
+
+    flex: 0 0 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-right: 15px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border: 1px solid #d3e0f3;
+
+    overflow: hidden;
+
+    color: #174c9c;
+
+    font-size: 31px;
+
+}
+
+
+.school-icon img {
+
+    width: 100%;
+
+    height: 100%;
+
+    padding: 5px;
+
+    box-sizing: border-box;
+
+    object-fit: contain;
+
+}
+
+
+.school-icon i {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.section-mini-title {
+
+    margin-bottom: 4px;
+
+    color: #174c9c;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+}
+
+
+.school-name {
+
+    margin-bottom: 4px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color: #111;
+
+}
+
+
+.school-meta {
+
+    font-size: 14px;
+
+    color: #555;
+
+}
+
+.billed-to-box.has-paid-seal {
+    padding-right: 170px;
+}
+
+.paid-seal {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    z-index: 2;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.paid-seal img {
+    display: block;
+    width: 250px;
+    height: auto;
+}
+/* ================================================================
+   SECTION TITLE
+================================================================ */
+
+.section-title {
+
+    padding: 9px 12px;
+
+    color: #ffffff;
+
+    background: #174c9c;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+}
+
+
+/* ================================================================
+   DETAILS
+================================================================ */
+
+.details-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 14px;
+
+}
+
+
+.details-table td {
+
+    padding: 8px 10px;
+
+    border: 1px solid #c6d5e8;
+
+}
+
+
+.details-table td:first-child {
+
+    width: 58%;
+
+}
+
+
+.details-label {
+
+    font-weight: 700;
+
+    color: #333;
+
+}
+
+
+.details-value {
+
+    font-weight: 600;
+
+}
+
+
+.detail-icon {
+
+    display: inline-block;
+
+    width: 18px;
+
+    color: #174c9c;
+
+    font-size: 10px;
+
+}
+
+
+.payable-row {
+
+    background: #edf4ff;
+
+}
+
+
+.payable-row .details-label {
+
+    color: #123b8f;
+
+}
+
+
+.payable-value {
+
+    color: #123b8f;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+}
+
+
+/* ================================================================
+   BOTTOM GRID
+================================================================ */
+
+.bottom-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+}
+
+
+/* ================================================================
+   INFO BOX
+================================================================ */
+
+.info-box {
+
+    border: 1px solid #cbd7e6;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    background: rgba(255,255,255,.95);
+
+}
+
+
+.box-title {
+
+    padding: 9px 12px;
+
+    background: #f0f4f9;
+
+    border-bottom: 1px solid #d5dce6;
+
+    color: #174c9c;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+}
+
+
+.info-row {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    padding: 7px 10px;
+
+    border-bottom: 1px solid #edf0f4;
+
+}
+
+
+.info-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.final-status-row {
+
+    background: #e8f7ee;
+
+    border-bottom: 1px solid #b8dfc5;
+
+}
+
+
+.info-label {
+
+    width: 43%;
+
+    color: #777;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.info-value {
+
+    width: 57%;
+
+    color: #222;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+
+}
+
+
+.paid-value {
+
+    color: #16834a;
+
+    font-weight: 800;
+
+}
+
+
+/* ================================================================
+   PAYMENT STATUS
+================================================================ */
+
+.status-badge {
+
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+}
+
+
+.status-paid {
+
+    color: #087a26;
+
+    background: #dff5e6;
+
+}
+
+
+.final-status-badge {
+
+    color: #087a26;
+
+    background: #bdebc9;
+
+    border: 1px solid #75c98d;
+
+    font-weight: 900;
+
+}
+
+
+.status-pending {
+
+    color: #856404;
+
+    background: #fff0bd;
+
+}
+
+
+.status-rejected {
+
+    color: #a01818;
+
+    background: #ffe0e0;
+
+}
+
+
+/* ================================================================
+   MOBILE BANKING
+================================================================ */
+
+.payment-subtitle {
+
+    padding: 7px 10px;
+
+    background: #fafafa;
+
+    color: #555;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: .4px;
+
+    border-bottom: 1px solid #edf0f4;
+
+}
+
+
+/* ================================================================
+   MODULES
+================================================================ */
+
+.module-list {
+
+    padding: 5px 10px;
+
+}
+
+
+.module-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+    padding: 7px 0;
+
+    border-bottom: 1px solid #edf0f4;
+
+    font-size: 13px;
+
+}
+
+
+.module-item:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.module-item span:last-child {
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+.no-module {
+
+    padding: 11px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+}
+
+
+/* ================================================================
+   FOOTER
+================================================================ */
+
+.invoice-footer {
+
+    margin-top: auto;
+
+    padding-top: 15px;
+
+    padding-bottom: 2px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 20px;
+
+    border-top: 1px solid #d5dbe4;
+
+    color: #666;
+
+    font-size: 10px;
+
+    line-height: 1.35;
+
+}
+
+
+.footer-left {
+
+    display: flex;
+
+    gap: 6px;
+
+    align-items: flex-start;
+
+}
+
+
+.footer-left strong {
+
+    color: #174c9c;
+
+    font-size: 11px;
+
+}
+
+
+.footer-right {
+
+    text-align: right;
+
+}
+
+
+.footer-right strong {
+
+    color: #174c9c;
+
+}
+
+
+/* ================================================================
+   PRINT
+================================================================ */
+
+@media print {
+
+    @page {
+
+        size: A4;
+
+        margin: 0;
+
+    }
+
+
+    html,
+    body {
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+        background: #ffffff !important;
+
+    }
+
+
+    .bill-print-content {
+
+        visibility: visible !important;
+
+        position: static !important;
+
+        left: auto !important;
+
+        top: auto !important;
+
+        width: 100% !important;
+
+    }
+
+
+    .invoice-page {
+
+        width: 210mm !important;
+
+        height: 297mm !important;
+
+        min-height: 297mm !important;
+
+        margin: 0 !important;
+
+        padding: 12mm 13mm 9mm !important;
+
+        box-sizing: border-box !important;
+
+        border: none !important;
+
+        box-shadow: none !important;
+
+        page-break-after: avoid !important;
+
+        -webkit-print-color-adjust: exact !important;
+
+        print-color-adjust: exact !important;
+
+    }
+
+
+    .invoice-watermark {
+
+        opacity: 0.10 !important;
+
+    }
+
+
+    .section-title,
+    .original-copy,
+    .info-box,
+    .billed-to-box,
+    .status-badge,
+    .invoice-footer {
+
+        -webkit-print-color-adjust: exact !important;
+
+        print-color-adjust: exact !important;
+
+    }
+
+}
+
