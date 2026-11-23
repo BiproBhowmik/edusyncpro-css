@@ -2,12 +2,12 @@
 /* ================================================================
    HIDDEN ON SCREEN
 ================================================================ */
-/* .bill-print-content {
+.bill-print-content {
     visibility: hidden;
     position: absolute;
     left: -99999px;
     top: 0;
-} */
+}
 
 /* ================================================================
    A4 PAGE
@@ -44,9 +44,9 @@
 
 .invoice-watermark img {
 
-    width: 1000px;
+    width: 400px;
 
-    height: 1000px;
+    height: 400px;
 
     object-fit: contain;
 
